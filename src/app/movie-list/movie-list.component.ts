@@ -7,13 +7,13 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  data: any;
+  movies: any;
 
   constructor(private service: MovieService) { }
 
   ngOnInit(): void {
     this.service.getTopRated().subscribe(response => {
-      this.data = response;
+      this.movies = response;
       console.log(response)
     });
   }

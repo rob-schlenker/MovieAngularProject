@@ -10,6 +10,7 @@ export class MovieService {
   // API Links
   topRatedUrl: string = "https://api.themoviedb.org/3/movie/top_rated";
   mostPopularUrl: string = "https://api.themoviedb.org/3/movie/popular";
+  movieSearchUrl: string = "https://api.themoviedb.org/3/discover/movie";
 
   constructor(private http: HttpClient) { }
   getTopRated(): any {
@@ -24,5 +25,11 @@ export class MovieService {
     });
   }
 
+  getMovieSearch(movieYear): any {
+    return this.http.get(this.movieSearchUrl, {
+      params: { api_key: this.apiKey, region: "US", primary_release_year: movieYear }
+    });
+
+  }
 
 }
