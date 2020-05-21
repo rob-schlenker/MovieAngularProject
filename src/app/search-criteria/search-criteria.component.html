@@ -1,1 +1,38 @@
-<p>search-criteria works!</p>
+<form #movieFilterForm="ngForm" (ngSubmit)="getSearchData(movieFilterForm)">
+    <label for="year">Movie Year</label>
+    <input type="text" name="year" id="year" ngModel>
+    <label for="genre">Movie Genre</label>
+    <select name="genre" id="genre" ngModel>
+        <option value="placeholder">Select Your Genre</option>
+        <option value="28">Action</option>
+        <option value="12">Adventure</option>
+        <option value="16">Animation</option>
+        <option value="35">Comedy</option>
+        <option value="80">Crime</option>
+        <option value="99">Documentary</option>
+        <option value="18">Drama</option>
+        <option value="10751">Family</option>
+        <option value="14">Fantasy</option>
+        <option value="36">History</option>
+        <option value="27">Horror</option>
+        <option value="10402">Music</option>
+        <option value="9648">Mystery</option>
+        <option value="10749">Romance</option>
+        <option value="878">Sci-Fi</option>
+        <option value="10770">TV Movie</option>
+        <option value="53">Thriller</option>
+        <option value="10752">War</option>
+        <option value="37">Western</option>
+    </select>
+    <label for="topgross">Highest Grossing Movies</label>
+    <select name="topgross" id="topgross" ngModel>
+        <option value="placeholder">Select Your Genre</option>
+        <!-- unsure how to limit the results / how many results come in 1 page -->
+        <option value="1">Top 20</option>
+        <option value="2">Top 40</option>
+        <option value="3">Top 60</option>
+        <option value="4">Top 80</option>
+        <option value="5">Top 100</option>
+    </select>
+    <button>Submit</button>
+</form>

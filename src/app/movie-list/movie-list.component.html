@@ -1,8 +1,9 @@
-<div>
-    <p> {{data?.results[0].title}}</p>
-    <p> {{data?.results[0].overview}}</p>
-    <p> {{data?.results[0].poster_path}}</p>
-    <p> {{data?.results[0].vote_average}}</p>
-</div>
 <app-search-criteria></app-search-criteria>
+
+<div *ngFor="let movie of movies?.results">
+    <p> {{movie.title}}</p>
+    <p> {{movie.overview}}</p>
+    <p> {{movie.vote_average}}</p>
+</div>
+
 <app-watchlist-page></app-watchlist-page>
