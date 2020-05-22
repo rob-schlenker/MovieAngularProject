@@ -25,9 +25,9 @@ export class MovieService {
     });
   }
 
-  getMovieSearch(movieYear): any {
+  getMovieSearch(movieYear = "", movieGenre = ""): any {
     return this.http.get(this.movieSearchUrl, {
-      params: { api_key: this.apiKey, region: "US", primary_release_year: movieYear }
+      params: { api_key: this.apiKey, region: "US", primary_release_year: movieYear, with_genres: movieGenre }
     });
 
   }

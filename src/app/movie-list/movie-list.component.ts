@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-list',
@@ -14,8 +15,16 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     this.service.getTopRated().subscribe(response => {
       this.movies = response;
-      console.log(response)
     });
   }
+
+  onSubmit(form: NgForm): void {
+    console.log(form);
+    this.service.getMovieSearch(form.value.year, form.value.genre).subscribe((response) => {
+      this.movies = response;
+
+    })
+  }
+
 
 }

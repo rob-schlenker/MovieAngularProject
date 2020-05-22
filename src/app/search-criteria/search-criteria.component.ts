@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { NgForm } from '@angular/forms';
 
@@ -9,7 +9,8 @@ import { NgForm } from '@angular/forms';
 })
 export class SearchCriteriaComponent implements OnInit {
 
-  searchData: any;
+  // searchData: any;
+  @Output() submitted = new EventEmitter<NgForm>();
 
   constructor(private service: MovieService) { }
 
@@ -17,10 +18,13 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   getSearchData(form: NgForm) {
-    this.service.getMovieSearch(form.value.year).subscribe((response) => {
-      console.log(form);
-      console.log(response);
-      this.searchData = response;
+    // needs to be specific with form values
+    console.log(form.value)
+    this.service.getMovieSearch(form.value.year, form.value.genre).subscribe((response) => {
+      // console.log(form);
+      // console.log(response);
+      this.submitted.emit(form);
+      // this.searchData = response;
 
     })
 

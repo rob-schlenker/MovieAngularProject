@@ -1,4 +1,4 @@
-<app-search-criteria></app-search-criteria>
+<app-search-criteria (submitted)="onSubmit($event)"></app-search-criteria>
 
 <div *ngFor="let movie of movies?.results">
     <p> {{movie.title}}</p>
