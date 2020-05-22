@@ -25,9 +25,16 @@ export class MovieService {
     });
   }
 
-  getMovieSearch(movieYear = "", movieGenre = ""): any {
+  getMovieSearch(movieYear = "", movieGenre = "", pageResults = "", highestGross = ""): any {
     return this.http.get(this.movieSearchUrl, {
-      params: { api_key: this.apiKey, region: "US", primary_release_year: movieYear, with_genres: movieGenre }
+      params: {
+        api_key: this.apiKey,
+        region: "US",
+        primary_release_year: movieYear,
+        with_genres: movieGenre,
+        page: pageResults,
+        sort_by: highestGross
+      }
     });
 
   }

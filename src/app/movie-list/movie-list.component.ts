@@ -20,10 +20,9 @@ export class MovieListComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     console.log(form);
-    this.service.getMovieSearch(form.value.year, form.value.genre).subscribe((response) => {
-      this.movies = response;
-
-    })
+    // this.service.getMovieSearch(form.value.year, form.value.genre, form.value.topgross).subscribe((response) => {
+    //   this.movies = response;
+    // })
   }
 
 
