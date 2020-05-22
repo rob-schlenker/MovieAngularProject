@@ -5,6 +5,8 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class MovieService {
+  watchList: any[] = [];
+
   // API Key
   apiKey: string = "4f8cf7b6aa6ecc6f5fdb68ec292d741d";
   // API Links
@@ -25,7 +27,7 @@ export class MovieService {
     });
   }
 
-  getMovieSearch(movieYear = "", movieGenre = "", pageResults = "", highestGross = ""): any {
+  getMovieSearch(movieYear = "", movieGenre = "", pageResults = "", highestGross = "popularity.desc"): any {
     return this.http.get(this.movieSearchUrl, {
       params: {
         api_key: this.apiKey,
@@ -37,6 +39,14 @@ export class MovieService {
       }
     });
 
+  }
+
+  pushWatchlist(movie: any) {
+    this.watchList.push(movie);
+  }
+
+  getWatchList(): any {
+    return this.watchList;
   }
 
 }
