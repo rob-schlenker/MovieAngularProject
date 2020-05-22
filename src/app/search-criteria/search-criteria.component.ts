@@ -18,22 +18,7 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
   getSearchData(form: NgForm) {
-    let gross = "revenue.desc";
-    let emptyGross = "";
-    // needs to be specific with form values
-    console.log(form.value)
-    if (form.value.topgross >= 1) {
-      this.service.getMovieSearch(form.value.year, form.value.genre, form.value.topgross, gross).subscribe((response) => {
-        this.submitted.emit(form);
-        console.log("if", response);
-      });
-    } else {
-      this.service.getMovieSearch(form.value.year, form.value.genre, form.value.topgross, emptyGross).subscribe((response) => {
-        this.submitted.emit(form);
-        console.log("else", response);
-      });
-    }
-
+    this.submitted.emit(form);
   }
 
 }
