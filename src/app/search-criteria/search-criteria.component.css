@@ -1,0 +1,28 @@
+.main-search{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 15px auto;
+    padding:20px;
+    max-width: 800px;
+}
+
+.main-search input, select{
+    padding: 10px 5px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.main-search label{
+    font-size: 1.5rem;
+}
+
+
+.submit-button {
+    font-size: 1.5rem;
+    color: #0333d1;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: white;
+}

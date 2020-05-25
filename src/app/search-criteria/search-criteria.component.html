@@ -1,4 +1,4 @@
-<form #movieFilterForm="ngForm" (ngSubmit)="getSearchData(movieFilterForm)">
+<form class="main-search" #movieFilterForm="ngForm" (ngSubmit)="getSearchData(movieFilterForm)">
     <label for="year">Movie Year</label>
     <input type="text" name="year" id="year" ngModel>
     <label for="genre">Movie Genre</label>
@@ -34,5 +34,5 @@
         <option value="4">Top 80</option>
         <option value="5">Top 100</option>
     </select>
-    <button>Submit</button>
+    <button class="submit-button">Submit</button>
 </form>
