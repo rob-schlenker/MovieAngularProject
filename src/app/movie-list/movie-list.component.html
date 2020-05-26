@@ -1,8 +1,11 @@
 <app-search-criteria (submitted)="onSubmit($event)"></app-search-criteria>
 
-<div *ngFor="let movie of movies?.results, index as i">
-    <p> {{movie.title}}</p>
-    <p> {{movie.overview}}</p>
-    <p> {{movie.vote_average}}</p>
-    <button (click)="addWatchlist(movie)">Add To Watchlist</button>
-</div>
+
+<div class="movies-container">
+    <div class="movies-main" *ngFor="let movie of movies?.results">
+        <p class="movie-title"> {{movie.title}}</p>
+        <p class="movie-overview"> {{movie.overview}}</p>
+        <p class="movie-rating"> {{movie.vote_average}}</p>
+        <i class="fas fa-bookmark fa-2x" (click)="addWatchlist(movie)"></i>
+    </div>
+
