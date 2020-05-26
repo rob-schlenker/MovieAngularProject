@@ -68,6 +68,11 @@ export class MovieListComponent implements OnInit {
     movie.posterClicked = true;
   }
 
+  hideDetails(movie: any) {
+    movie.detailsClicked = false;
+    movie.posterClicked = false;
+  }
+
   // checkWatchlist(movie: any, index: number): void {
   //   //this adds a property to the movie object
   //   //so we can grab this property to trigger styles

@@ -2,14 +2,14 @@
 
 
 <div class="movies-container">
-    <div class="movies-main" *ngFor="let movie of movies?.results, index as i" (click)="seeDetails(movie)">
-        <div class="details" [ngClass]="{'detailsClicked' : movie.detailsClicked}">
+    <div class="movies-main" *ngFor="let movie of movies?.results, index as i">
+        <div class="details" (click)="hideDetails(movie)" [ngClass]="{'detailsClicked' : movie.detailsClicked}">
             <p class="movie-title"> {{movie.title}}</p>
             <p class="movie-overview"> {{movie.overview}}</p>
             <p class="movie-rating"> Rating: {{movie.vote_average}}</p>
         </div>
         <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-            [ngClass]="{'posterClicked' : movie.posterClicked}">
-        <i class="fas fa-bookmark fa-2x" (click)="addWatchlist(movie)" [ngClass]="{'clicked' : movie.isClicked}"></i>
+            [ngClass]="{'posterClicked' : movie.posterClicked}" (click)="seeDetails(movie)">
+        <i class="fas fa-bookmark fa-3x" (click)="addWatchlist(movie)" [ngClass]="{'clicked' : movie.isClicked}"></i>
     </div>
 </div>
