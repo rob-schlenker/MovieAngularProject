@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-watchlist-page',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WatchlistPageComponent implements OnInit {
 
-  constructor() { }
+  watchList: any;
+
+  @Input() watchListInfo: any;
+
+  constructor(private service: MovieService) { }
 
   ngOnInit(): void {
+    this.watchList = this.service.getWatchList();
   }
+
+  //
+
 
 }
