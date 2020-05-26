@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -12,24 +13,35 @@ export class MovieListComponent implements OnInit {
   movies: any;
 
 
-  @Output() sendWatchlist = new EventEmitter<any>();
-
-  constructor(private service: MovieService) { }
+  constructor(private service: MovieService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.service.getTopRated().subscribe(response => {
-      this.movies = response;
+    this.route.queryParams.subscribe((response) => {
+      // do logic if form is submitted
+      if (response.year || response.genre || response.topgross) {
+        this.service.getMovieSearch(response.year, response.genre, response.topgross).subscribe((response) => {
+          console.log(response);
+          this.movies = response;
+        });
+      } else {
+        this.service.getTopRated().subscribe(response => {
+          this.movies = response;
+        });
+      }
     });
   }
 
   onSubmit(form: NgForm): void {
     console.log(form);
     console.log(form.value)
+    this.router.navigate(["movie"], {
+      queryParams: {
+        year: form.value.year,
+        genre: form.value.genre,
+        topgross: form.value.topgross
+      }
+    })
 
-    this.service.getMovieSearch(form.value.year, form.value.genre, form.value.topgross).subscribe((response) => {
-      console.log(response);
-      this.movies = response;
-    });
   }
 
 
@@ -45,6 +57,27 @@ export class MovieListComponent implements OnInit {
     movie.wishList = true;
     console.log(movie)
   }
+
+  seeDetails(movie: any) {
+    movie.detailsClicked = true;
+    movie.posterClicked = true;
+  }
+
+  // checkWatchlist(movie: any, index: number): void {
+  //   //this adds a property to the movie object
+  //   //so we can grab this property to trigger styles
+  //   movie.isClicked = true;
+  //   console.log(movie.title)
+  //   console.log(this.watchListSearchPage.title)
+  //   if (this.watchListSearchPage.title != movie.title) {
+  //     this.service.pushWatchlist(movie)
+  //     //need to figure out how to prevent mulitples from going into the list
+  //   } else {
+  //     this.service.removeWatchlist(index)
+  //   }
+  //   this.watchListSearchPage = this.service.getWatchList();
+  //   console.log(movie)
+  // }
 
 
 }
