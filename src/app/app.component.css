@@ -1,0 +1,8 @@
+.logo-container {
+    display: flex;
+    justify-content: space-around
+}
+
+.main-logo{
+    height: 200px;
+}
