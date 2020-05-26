@@ -22,15 +22,21 @@ export class MovieService {
 
 
 
-  getMovieSearch(movieYear = "", movieGenre = "", highestGross = "popularity.desc"): any {
+  getMovieSearch(movieYear, movieGenre, highestGross = "popularity.desc"): any {
+    let parameters: any = {};
+    parameters.api_key = this.apiKey;
+    parameters.region = "US";
+    if (movieYear != "") {
+      parameters.primary_release_year = movieYear;
+    }
+    if (movieGenre != "") {
+      parameters.with_genres = movieGenre;
+    }
+    if (highestGross != "") {
+      parameters.sort_by = highestGross;
+    }
     return this.http.get(this.movieSearchUrl, {
-      params: {
-        api_key: this.apiKey,
-        region: "US",
-        primary_release_year: movieYear,
-        with_genres: movieGenre,
-        sort_by: highestGross
-      }
+      params: parameters
     });
 
   }
