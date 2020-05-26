@@ -18,8 +18,9 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((response) => {
       // do logic if form is submitted
+      console.log(response);
       if (response.year || response.genre || response.topgross) {
-        this.service.getMovieSearch(response.year, response.genre, response.topgross).subscribe((response) => {
+        this.service.getMovieSearch(response).subscribe((response) => {
           console.log(response);
           this.movies = response;
         });
@@ -32,14 +33,18 @@ export class MovieListComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    console.log(form);
-    console.log(form.value)
+    let parameters: any = {};
+    if (form.value.year) {
+      parameters.year = form.value.year;
+    }
+    if (form.value.genre) {
+      parameters.genres = form.value.genre;
+    }
+    if (form.value.topgross) {
+      parameters.topgross = form.value.topgross;
+    }
     this.router.navigate(["movie"], {
-      queryParams: {
-        year: form.value.year,
-        genre: form.value.genre,
-        topgross: form.value.topgross
-      }
+      queryParams: parameters
     })
 
   }
