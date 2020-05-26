@@ -19,6 +19,7 @@ export class SearchCriteriaComponent implements OnInit {
 
   getSearchData(form: NgForm) {
     this.submitted.emit(form);
+    form.reset();
   }
 
 }

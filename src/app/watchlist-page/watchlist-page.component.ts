@@ -18,7 +18,11 @@ export class WatchlistPageComponent implements OnInit {
     this.watchList = this.service.getWatchList();
   }
 
-  //
+  removeMovie(index: number): void {
+    this.service.removeWatchlist(index);
+  }
+
+
 
 
 }

@@ -1,9 +1,9 @@
 <form class="main-search" #movieFilterForm="ngForm" (ngSubmit)="getSearchData(movieFilterForm)">
     <label for="year">Movie Year</label>
-    <input type="text" name="year" id="year" ngModel>
+    <input type="text" name="year" id="year" placeholder="Add the year here" ngModel>
     <label for="genre">Movie Genre</label>
     <select name="genre" id="genre" ngModel>
-        <option value="placeholder">Select Your Genre</option>
+        <option value="" disabled selected hidden>Select Your Genre</option>
         <option value="28">Action</option>
         <option value="12">Adventure</option>
         <option value="16">Animation</option>
@@ -26,13 +26,10 @@
     </select>
     <label for="topgross">Highest Grossing Movies</label>
     <select name="topgross" id="topgross" ngModel>
-        <option value="0">Select Your Genre</option>
+        <option value="popularity.desc">Sort By Gross Revenue</option>
         <!-- unsure how to limit the results / how many results come in 1 page -->
-        <option value="1">Top 20</option>
-        <option value="2">Top 40</option>
-        <option value="3">Top 60</option>
-        <option value="4">Top 80</option>
-        <option value="5">Top 100</option>
+        <option value="revenue.desc">Revenue Descending</option>
+        <option value="revenue.asc">Revenue Ascending</option>
     </select>
     <button class="submit-button">Submit</button>
 </form>
