@@ -25,25 +25,28 @@ export class MovieListComponent implements OnInit {
   onSubmit(form: NgForm): void {
     console.log(form);
     console.log(form.value)
-    let gross = "revenue.desc";
-    if (form.value.topgross > 0) {
-      this.service.getMovieSearch(form.value.year, form.value.genre, form.value.topgross, gross).subscribe((response) => {
-        console.log(response);
-        this.movies = response;
-      });
-    } else {
-      this.service.getMovieSearch(form.value.year, form.value.genre, form.value.topgross).subscribe((response) => {
-        console.log(response);
-        this.movies = response;
-      });
-    }
+
+    this.service.getMovieSearch(form.value.year, form.value.genre, form.value.topgross).subscribe((response) => {
+      console.log(response);
+      this.movies = response;
+    });
   }
 
+
   addWatchlist(movie: any): void {
-    this.service.pushWatchlist(movie)
-    // this.sendWatchlist.emit(this.watchList)
+    //this adds a property to the movie object
+    //so we can grab this property to trigger styles
+    movie.isClicked = true;
+    movie.wishList = false;
+    if (movie.wishList === false) {
+      this.service.pushWatchlist(movie)
+      //need to figure out how to prevent mulitples from going into the list
+    }
+    movie.wishList = true;
     console.log(movie)
   }
+
+
 }
 
 

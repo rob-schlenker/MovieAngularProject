@@ -1,2 +1,9 @@
-<p>watchlist-page works!</p>
-<p *ngFor="let movie of watchList">{{movie.title}}</p>
+<div class="movies-container">
+    <div class="movies-main" *ngFor="let movie of watchList, index as i">
+        <!-- <p class="movie-title"> {{movie.title}}</p>
+        <p class="movie-overview"> {{movie.overview}}</p>
+        <p class="movie-rating"> {{movie.vote_average}}</p> -->
+        <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+        <i class="fas fa-bookmark fa-2x" (click)="removeMovie(i)"></i>
+    </div>
+</div>

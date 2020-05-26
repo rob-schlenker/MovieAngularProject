@@ -11,7 +11,6 @@ export class MovieService {
   apiKey: string = "4f8cf7b6aa6ecc6f5fdb68ec292d741d";
   // API Links
   topRatedUrl: string = "https://api.themoviedb.org/3/movie/top_rated";
-  mostPopularUrl: string = "https://api.themoviedb.org/3/movie/popular";
   movieSearchUrl: string = "https://api.themoviedb.org/3/discover/movie";
 
   constructor(private http: HttpClient) { }
@@ -21,28 +20,27 @@ export class MovieService {
     });
   }
 
-  getMostPopular(): any {
-    return this.http.get(this.mostPopularUrl, {
-      params: { api_key: this.apiKey, region: "US" }
-    });
-  }
 
-  getMovieSearch(movieYear = "", movieGenre = "", pageResults = "", highestGross = "popularity.desc"): any {
+
+  getMovieSearch(movieYear = "", movieGenre = "", highestGross = "popularity.desc"): any {
     return this.http.get(this.movieSearchUrl, {
       params: {
         api_key: this.apiKey,
         region: "US",
         primary_release_year: movieYear,
         with_genres: movieGenre,
-        page: pageResults,
         sort_by: highestGross
       }
     });
 
   }
 
-  pushWatchlist(movie: any) {
+  pushWatchlist(movie: any): void {
     this.watchList.push(movie);
+  }
+
+  removeWatchlist(index: number): void {
+    this.watchList.splice(index, 1);
   }
 
   getWatchList(): any {

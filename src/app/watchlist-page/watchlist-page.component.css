@@ -1,0 +1,45 @@
+.movies-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    
+}
+
+.movies-main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    border: solid 1px white;
+    padding: 20px;
+    margin:10px;
+    position: relative;
+}
+
+.movie-title {
+font-size: 1.3rem;
+padding: 5px 0;
+}
+
+.movie-overview {
+    padding: 5px 0;
+}
+
+.movie-rating {
+    padding: 5px 0;
+    font-size: 1.3rem;
+}
+
+.movie-poster {
+    max-width: 100%;
+}
+
+.fas {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    size: 2x;
+}
