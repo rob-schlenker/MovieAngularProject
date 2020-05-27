@@ -10,23 +10,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MovieListComponent implements OnInit {
 
-  movies: any;
-
+  movies: any = [];
+  viewWatchlist: any = [];
 
   constructor(private service: MovieService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.viewWatchlist = this.service.getWatchList();
+
     this.route.queryParams.subscribe((response) => {
-      // do logic if form is submitted
-      console.log(response);
+
       if (response.year || response.genres || response.topgross) {
         this.service.getMovieSearch(response).subscribe((response) => {
-          console.log(response);
-          this.movies = response;
+          this.movies = response.results;
+          if (this.viewWatchlist) {
+            this.addTrue();
+          }
         });
       } else {
         this.service.getTopRated().subscribe(response => {
-          this.movies = response;
+          this.movies = response.results;
+          if (this.viewWatchlist) {
+            this.addTrue();
+          }
         });
       }
     });
@@ -49,19 +55,38 @@ export class MovieListComponent implements OnInit {
 
   }
 
+  checkWatchlist(movie: any): boolean {
+    return this.viewWatchlist.some((listItem) => {
+      return listItem.id === movie.id;
+    })
+  }
+
+  addTrue(): void {
+    this.movies.forEach((movie) => {
+      if (this.checkWatchlist(movie)) {
+        movie.isClicked = true;
+      }
+    });
+  }
+
 
   addWatchlist(movie: any): void {
-    //this adds a property to the movie object
-    //so we can grab this property to trigger styles
-    //look for movie ID
-    movie.isClicked = true;
-    movie.wishList = false;
-    if (movie.wishList === false) {
-      this.service.pushWatchlist(movie)
-      //need to figure out how to prevent mulitples from going into the list
+    let index = null;
+    if (this.viewWatchlist.length === 0) {
+      movie.isClicked = true;
+      this.viewWatchlist.push(movie);
+    } else {
+      index = this.viewWatchlist.findIndex((listItem) => {
+        return listItem.id === movie.id;
+      });
+      if (this.checkWatchlist(movie)) {
+        this.service.removeWatchlist(index)
+        movie.isClicked = false;
+      } else {
+        movie.isClicked = true;
+        this.viewWatchlist.push(movie);
+      }
     }
-    movie.wishList = true;
-    console.log(movie)
   }
 
   seeDetails(movie: any) {
@@ -73,24 +98,6 @@ export class MovieListComponent implements OnInit {
     movie.detailsClicked = false;
     movie.posterClicked = false;
   }
-
-  // checkWatchlist(movie: any, index: number): void {
-  //   //this adds a property to the movie object
-  //   //so we can grab this property to trigger styles
-  //   movie.isClicked = true;
-  //   console.log(movie.title)
-  //   console.log(this.watchListSearchPage.title)
-  //   if (this.watchListSearchPage.title != movie.title) {
-  //     this.service.pushWatchlist(movie)
-  //     //need to figure out how to prevent mulitples from going into the list
-  //   } else {
-  //     this.service.removeWatchlist(index)
-  //   }
-  //   this.watchListSearchPage = this.service.getWatchList();
-  //   console.log(movie)
-  // }
-
-
 }
 
 

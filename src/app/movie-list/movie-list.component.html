@@ -2,7 +2,7 @@
 
 
 <div class="movies-container">
-    <div class="movies-main" *ngFor="let movie of movies?.results, index as i">
+    <div class="movies-main" *ngFor="let movie of movies, index as i">
         <div class="details" (click)="hideDetails(movie)" [ngClass]="{'detailsClicked' : movie.detailsClicked}">
             <p class="movie-title"> {{movie.title}}</p>
             <p class="movie-overview"> {{movie.overview}}</p>

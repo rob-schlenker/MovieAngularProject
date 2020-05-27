@@ -6,7 +6,7 @@ import { NgForm } from '@angular/forms';
   providedIn: 'root'
 })
 export class MovieService {
-  watchList: any[] = [];
+  watchList: any = [];
 
   // API Key
   apiKey: string = "4f8cf7b6aa6ecc6f5fdb68ec292d741d";
@@ -46,6 +46,7 @@ export class MovieService {
 
   pushWatchlist(movie: any): void {
     this.watchList.push(movie);
+    console.log(this.watchList)
   }
 
   removeWatchlist(index: number): void {
