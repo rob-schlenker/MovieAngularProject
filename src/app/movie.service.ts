@@ -23,6 +23,7 @@ export class MovieService {
   }
 
   getMovieSearch(parameters: any): any {
+    console.log(parameters);
     let discoverParameters: any = {};
     discoverParameters.api_key = this.apiKey;
     discoverParameters.region = "US";
@@ -35,9 +36,11 @@ export class MovieService {
     if (parameters.topgross) {
       discoverParameters.sort_by = parameters.topgross;
     }
+    console.log(discoverParameters);
     return this.http.get(this.discoverSearchUrl, {
       params: discoverParameters
     });
+
 
   }
 

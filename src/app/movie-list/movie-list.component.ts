@@ -19,7 +19,7 @@ export class MovieListComponent implements OnInit {
     this.route.queryParams.subscribe((response) => {
       // do logic if form is submitted
       console.log(response);
-      if (response.year || response.genre || response.topgross) {
+      if (response.year || response.genres || response.topgross) {
         this.service.getMovieSearch(response).subscribe((response) => {
           console.log(response);
           this.movies = response;
@@ -53,6 +53,7 @@ export class MovieListComponent implements OnInit {
   addWatchlist(movie: any): void {
     //this adds a property to the movie object
     //so we can grab this property to trigger styles
+    //look for movie ID
     movie.isClicked = true;
     movie.wishList = false;
     if (movie.wishList === false) {
