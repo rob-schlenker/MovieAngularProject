@@ -28,7 +28,7 @@ export class MovieListComponent implements OnInit {
           }
         });
       } else {
-        this.service.getTopRated().subscribe(response => {
+        this.service.getWillMovies().subscribe(response => {
           this.movies = response.results;
           if (this.viewWatchlist) {
             this.addTrue();

@@ -18,6 +18,10 @@
     font-size: 1.5rem;
 }
 
+.num-input:invalid {
+    border: solid red 3px;
+  }
+
 
 .submit-button {
     font-size: 1.5rem;
@@ -32,6 +36,6 @@
     background-color: rgb(204, 204, 204);
 }
 
-/* .main-search input:hover, select:hover {
+.main-search input:hover, select:hover {
     background-color: rgb(204, 204, 204);
-} */
+}

@@ -13,8 +13,15 @@ export class MovieService {
   // API Links
   topRatedUrl: string = "https://api.themoviedb.org/3/movie/top_rated";
   discoverSearchUrl: string = "https://api.themoviedb.org/3/discover/movie";
+  willMoviesUrl: string = "https://api.themoviedb.org/3/discover/movie"
 
   constructor(private http: HttpClient) { }
+
+  getWillMovies(): any {
+    return this.http.get(this.willMoviesUrl, {
+      params: { api_key: this.apiKey, region: "US", with_genres: "35", with_cast: "23659", sort_by: "revenue.desc" }
+    });
+  }
 
   getTopRated(): any {
     return this.http.get(this.topRatedUrl, {
