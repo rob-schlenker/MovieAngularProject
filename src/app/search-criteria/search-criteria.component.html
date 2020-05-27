@@ -1,7 +1,7 @@
 <form class="main-search" #movieFilterForm="ngForm" (ngSubmit)="getSearchData(movieFilterForm)">
     <label for="year">Movie Year</label>
-    <input class="num-input" type="number" name="year" id="year" placeholder="ex. 1986, 1972..." min="1945" max="2020"
-        ngModel>
+    <input class="num-input" type="number" name="year" id="year" placeholder="Enter a Year Between 1901 and 2020"
+        min="1901" max="2020" ngModel>
     <label for="genre">Movie Genre</label>
     <select name="genre" id="genre" ngModel>
         <option value="" selected>Select Your Genre</option>
