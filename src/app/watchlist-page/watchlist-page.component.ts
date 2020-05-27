@@ -22,7 +22,15 @@ export class WatchlistPageComponent implements OnInit {
     this.service.removeWatchlist(index);
   }
 
+  seeDetails(movie: any) {
+    movie.detailsClicked = true;
+    movie.posterClicked = true;
+  }
 
+  hideDetails(movie: any) {
+    movie.detailsClicked = false;
+    movie.posterClicked = false;
+  }
 
 
 }

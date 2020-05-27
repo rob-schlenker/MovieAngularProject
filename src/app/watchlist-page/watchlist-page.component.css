@@ -20,7 +20,7 @@
 }
 
 .movie-title {
-font-size: 1.3rem;
+font-size: 2.5rem;
 padding: 5px 0;
 }
 
@@ -39,7 +39,28 @@ padding: 5px 0;
 
 .fas {
     position: absolute;
-    right: 5px;
-    top: 0;
+    right: -10px;
+    top: -15px;
     size: 2x;
+    color: rgb(221, 81, 81);
+}
+
+.fas:hover {
+    color: rgb(231, 3, 3);
+}
+
+
+
+.details {
+    display: none;
+}
+
+.detailsClicked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.posterClicked {
+    display:none;
 }

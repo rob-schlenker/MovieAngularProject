@@ -3,7 +3,7 @@
     justify-content: center;
     flex-direction: column;
     margin: 15px auto;
-    padding:20px;
+    padding:0 20px 20px 20px;
     max-width: 1200px;
 }
 
@@ -25,4 +25,13 @@
     margin-top: 10px;
     border-radius: 10px;
     background-color: white;
+    transition-duration: 0.4s;
 }
+
+.submit-button:hover {
+    background-color: rgb(204, 204, 204);
+}
+
+/* .main-search input:hover, select:hover {
+    background-color: rgb(204, 204, 204);
+} */

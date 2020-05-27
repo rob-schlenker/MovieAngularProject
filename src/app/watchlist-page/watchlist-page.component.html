@@ -1,9 +1,12 @@
 <div class="movies-container">
     <div class="movies-main" *ngFor="let movie of watchList, index as i">
-        <!-- <p class="movie-title"> {{movie.title}}</p>
-        <p class="movie-overview"> {{movie.overview}}</p>
-        <p class="movie-rating"> {{movie.vote_average}}</p> -->
-        <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
-        <i class="fas fa-bookmark fa-2x" (click)="removeMovie(i)"></i>
+        <div class="details" (click)="hideDetails(movie)" [ngClass]="{'detailsClicked' : movie.detailsClicked}">
+            <p class="movie-title"> {{movie.title}}</p>
+            <p class="movie-overview"> {{movie.overview}}</p>
+            <p class="movie-rating"> {{movie.vote_average}}</p>
+        </div>
+        <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+            [ngClass]="{'posterClicked' : movie.posterClicked}" (click)="seeDetails(movie)">
+        <i class="fas fa-minus-circle fa-3x" (click)="removeMovie(i)"></i>
     </div>
 </div>

@@ -43,8 +43,7 @@ border-bottom: 1px white solid;
 .fas {
     position: absolute;
     right: 5px;
-    top: 0;
-    size: 2x;
+    top: -6px;
     color: white;
 }
 
