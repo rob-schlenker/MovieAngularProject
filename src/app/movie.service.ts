@@ -29,8 +29,8 @@ export class MovieService {
     if (parameters.year) {
       discoverParameters.primary_release_year = parameters.year;
     }
-    if (parameters.genre) {
-      discoverParameters.with_genres = parameters.genre;
+    if (parameters.genres) {
+      discoverParameters.with_genres = parameters.genres;
     }
     if (parameters.topgross) {
       discoverParameters.sort_by = parameters.topgross;
