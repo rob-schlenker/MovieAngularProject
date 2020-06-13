@@ -1,41 +1,43 @@
-.main-search{
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 15px auto;
-    padding:0 20px 20px 20px;
-    max-width: 1200px;
+.main-search {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15px auto;
+  padding: 0 20px 20px 20px;
+  max-width: 800px;
 }
 
-.main-search input, select{
-    padding: 10px 5px;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    margin: 10px 0;
+.main-search input,
+select {
+  padding: 10px 5px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 
-.main-search label{
-    font-size: 1.5rem;
+.main-search label {
+  font-size: 1.5rem;
 }
 
 .num-input:invalid {
-    border: solid red 3px;
-  }
+  border: solid red 3px;
+}
 
 
 .submit-button {
-    font-size: 1.5rem;
-    color: #0333d1;
-    margin-top: 10px;
-    border-radius: 10px;
-    background-color: white;
-    transition-duration: 0.4s;
+  font-size: 1.5rem;
+  color: #0333d1;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: white;
+  transition-duration: 0.4s;
 }
 
 .submit-button:hover {
-    background-color: rgb(204, 204, 204);
+  background-color: rgb(204, 204, 204);
 }
 
-.main-search input:hover, select:hover {
-    background-color: rgb(204, 204, 204);
+.main-search input:hover,
+select:hover {
+  background-color: rgb(204, 204, 204);
 }
