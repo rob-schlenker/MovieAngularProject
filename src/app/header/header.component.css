@@ -1,27 +1,31 @@
 .header-color {
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 25%, rgba(0,74,255,1) 100%);
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 25%, rgba(0, 74, 255, 1) 100%);
 }
 
-.header-container{
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    padding: 10px 0;
-    max-width: 1200px;
+.header-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 10px 0;
+  max-width: 1200px;
 }
 
 .watchlist-header {
-    font-size: 1.5rem;
-    padding-right: 15px;
-    text-decoration: none;
-    color: white;
+  font-size: 1.5rem;
+  padding-right: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.watchlist-header:hover {
+  border-bottom: 1.5px solid white;
 }
 
 .logo-header {
-    font-size: 1.5rem;
-    padding-left: 15px;
+  font-size: 1.5rem;
+  padding-left: 15px;
 }
