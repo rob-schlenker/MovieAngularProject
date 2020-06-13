@@ -11,8 +11,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  border: solid 1px white;
-  padding: 10px;
+  border: solid 6px white;
   margin: 10px;
   position: relative;
   max-width: 150px;
@@ -29,6 +28,7 @@
 .movie-overview {
   padding: 5px 0;
   position: relative;
+  font-size: .8rem;
 }
 
 .movie-rating {
@@ -46,14 +46,17 @@
   right: 5px;
   top: -6px;
   color: white;
+  opacity: 40%;
 }
 
 .fas:hover {
   color: rgb(255, 219, 153);
+  opacity: 100%;
 }
 
 .clicked {
   color: rgb(240, 204, 1);
+  opacity: 100%;
 }
 
 .details {
