@@ -20,13 +20,13 @@
 .movie-title {
   margin-top: 35px;
   font-size: 1.5rem;
-  padding: 5px 0;
+  padding: 5px 5px;
   border-bottom: 1px white solid;
   align-items: center;
 }
 
 .movie-overview {
-  padding: 5px 0;
+  padding: 5px 5px;
   position: relative;
   font-size: .8rem;
 }
@@ -46,17 +46,17 @@
   right: 5px;
   top: -6px;
   color: white;
-  opacity: 40%;
+  /* opacity: 40%; */
 }
 
 .fas:hover {
   color: rgb(255, 219, 153);
-  opacity: 100%;
+  /* opacity: 100%; */
 }
 
 .clicked {
   color: rgb(240, 204, 1);
-  opacity: 100%;
+  /* opacity: 100%; */
 }
 
 .details {
